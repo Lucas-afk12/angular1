@@ -1,0 +1,54 @@
+
+<div class="container">
+<input type="text" class="form-control bg-dark text-light" > 
+<table class="table table-dark"  style="text-align: center;">
+
+  <thead>
+
+    <tr>
+      <th>@</th>
+      <th>image</th>
+      <th>coin</th>
+      <th>symbol</th>
+      <th>price</th>
+      <th>price change 24h</th>
+    </tr>
+
+  </thead>
+
+  <tbody style="justify-content:center;">
+    <tr *ngFor="let coin of coins ; let i=index ">
+
+
+      <td class="text-muted">
+        {{i +1}}
+      </td>
+      <td>
+        <img src={{coin.image}} style="width: 2rem ;
+        height: 2rem;">
+</td>
+      <td style="font-size: 1.5rem; " >
+
+        {{coin.name}}
+
+       </td>
+<td>
+       <span>
+       <b style="font-size: 1rem;" class="text-muted ; text-uppercase"> {{coin.symbol}} </b>
+        </span>
+      </td>
+<td>
+
+        {{coin.current_price}}$
+
+</td>
+
+<td [ngClass]="coin.price_change_percentage_24h > 0 ? 'text-success' : 'text-danger' ">
+  {{coin.price_change_percentage_24h}}%
+</td>
+   
+
+    </tr>
+  </tbody>
+</table>
+</div>
